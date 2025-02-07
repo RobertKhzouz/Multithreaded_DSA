@@ -1,0 +1,36 @@
+# Ignore compiled binaries and executables
+*.exe
+*.out
+*.o
+*.obj
+*.a
+*.so
+*.dll
+
+# Ignore build directories
+/build/
+/bin/
+/dist/
+
+# Ignore IDE and editor files
+.vscode/
+.idea/
+*.suo
+*.user
+*.ncb
+*.sdf
+*.sqlite
+*.pyc
+
+# Ignore log and temporary files
+*.log
+*.tmp
+*.cache
+*.swp
+*.bak
+
+# Ignore CMake and Makefile-generated files
+CMakeCache.txt
+CMakeFiles/
+Makefile
+cmake_install.cmake
