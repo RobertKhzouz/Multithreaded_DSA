@@ -107,6 +107,10 @@ void linearSearchWrapper(const int threadCount, const int arrSize, const T searc
     {
         std::cout << "Value not found!" << std::endl;
     }
+
+    // Reset atomics
+    foundIndex.store(-1);
+    foundThread.store(NULL);
 }
 
 #endif

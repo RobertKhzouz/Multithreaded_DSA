@@ -17,6 +17,7 @@ int main()
     auto start = std::chrono::high_resolution_clock::now();
 
     linearSearchWrapper(4, 100, 10);
+    linearSearchWrapper(4, 100, 10);
 
     auto end = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double, std::milli> duration = end - start;
