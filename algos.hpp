@@ -7,7 +7,6 @@
 
 /* MACOS DOES NOT SUPPORT THREAD AFFINITY -- Alternative is to encourage grouping via Affinity Tags */
 
-extern std::atomic<bool> found;
 extern std::atomic<int> foundIndex;
 
 template <typename T>
@@ -22,17 +21,19 @@ void *linearSearch(void *arguments)
 
     for (int i = args->startI; i < args->endI; i++)
     {
-        if (found.load(std::memory_order_acquire))
+        // Another thread has found the value
+        if (foundIndex.load(std::memory_order_acquire) != -1)
         {
             return nullptr;
         }
+        // This thread has found the value
         if (args->arr[i] == args->searchVal)
         {
             foundIndex.store(i, std::memory_order_relaxed);
-            found.store(true, std::memory_order_relaxed);
             return nullptr;
         }
     }
+    // No thread found the value
     return nullptr;
 }
 

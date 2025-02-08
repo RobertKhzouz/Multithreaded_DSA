@@ -12,7 +12,6 @@ const int THREAD_COUNT = 4;
 const int SIZE_PER_THREAD = ARRSIZE / THREAD_COUNT;
 const int SEARCH_VAL = -1;
 
-std::atomic<bool> found(false);
 std::atomic<int> foundIndex(-1);
 
 int main()
@@ -52,7 +51,7 @@ int main()
     }
 
     // Atomic read
-    if (found.load())
+    if (foundIndex.load() != -1)
     {
         std::cout << "Value found at index: " << foundIndex.load() << std::endl;
     }
