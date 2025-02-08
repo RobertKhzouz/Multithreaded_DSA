@@ -12,7 +12,7 @@ void *linearSearch(void *arguments)
     LinearSearchArgs<T> *args = static_cast<LinearSearchArgs<T> *>(arguments);
     for (int i = args->startI; i < args->endI; i++)
     {
-        if (found.load())
+        if (found.load(std::memory_order_acquire))
         {
             return nullptr;
         }
