@@ -9,6 +9,7 @@ struct LinearSearchArgs
     int startI;
     int endI;
     T searchVal;
+    int affinityTag;
 };
 
 #endif
